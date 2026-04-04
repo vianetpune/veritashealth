@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    /* Brand Colors */
+    --color-navy: #0D1F3C;
+    --color-navy-light: #1C2E4A;
+    --color-charcoal: #1C1C2E;
+    --color-white: #FFFFFF;
+    --color-off-white: #F9F6F1;
+    --color-gold: #B8960C;
+    --color-gold-light: #D4AF37;
+    --color-teal: #0D7377;
+    --color-text-main: #1A1A2E;
+    --color-text-muted: #555566;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 12px 24px rgba(0,0,0,0.15);
+
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-off-white);
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    font-weight: 700;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+section {
+    padding: var(--space-lg) 0;
+}
+
+/* UI Elements */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: none;
+}
+
+.btn--primary {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn--outline {
+    background-color: transparent;
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+}
+
+.btn--outline:hover {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+}
+
+/* Navigation */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(13, 31, 60, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-navy);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo__veritas {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-navy);
+    letter-spacing: 1px;
+}
+
+.logo__subtitle {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-gold);
+    margin-top: -4px;
+}
+
+.nav__links {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+.nav__link {
+    font-weight: 500;
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav__link:hover {
+    color: var(--color-gold);
+}
+
+.nav__link.active {
+    color: var(--color-gold);
+}
+
+.nav__link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+/* WhatsApp Floating Widget */
+.whatsapp-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
+    font-size: 1.8rem;
+    transition: var(--transition-base);
+}
+
+.whatsapp-widget:hover {
+    transform: scale(1.1);
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding: var(--space-lg) 0;
+}
+
+.footer__disclaimer {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-md);
+    line-height: 1.8;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    min-height: calc(100vh - 80px);
+    padding: var(--space-lg) 0;
+}
+
+.hero__content {
+    flex: 1;
+}
+
+.hero__image-wrapper {
+    flex: 1.2;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.hero__image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(184, 150, 12, 0.1);
+    color: var(--color-gold);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Problem Section */
+.problem {
+    background-color: var(--color-navy);
+    color: white;
+    padding: var(--space-xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.problem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 150, 12, 0.03));
+}
+
+/* Service Cards */
+.service-card {
+    padding: var(--space-md);
+    background: white;
+    border: 1px solid rgba(13, 31, 60, 0.05);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    text-align: left;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-gold);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+/* Mobile Responsive Refinements */
+@media (max-width: 968px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero {
+        flex-direction: column-reverse;
+        padding: var(--space-md) 0;
+        text-align: center;
+    }
+
+    .nav__toggle {
+        display: block;
+    }
+    
+    .nav__links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background: white;
+        height: calc(100vh - 80px);
+        padding: 4rem 2rem;
+        transition: var(--transition-base);
+        box-shadow: var(--shadow-lg);
+        z-index: 1000;
+        gap: 2.5rem;
+    }
+
+    .nav__links--open {
+        left: 0;
+    }
+
+    .nav__link {
+        font-size: 1.25rem;
+    }
+    
+    .nav__container {
+        justify-content: space-between;
+    }
+    
+    .problem .container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .problem div {
+        padding-left: 0 !important;
+        border-left: none !important;
+    }
+}
+
+/* Global Form Styles */
+input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(13, 31, 60, 0.1);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition-base);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(184, 150, 12, 0.1);
+}
+
+/* Utils */
+.text-gold { color: var(--color-gold); }
+.text-navy { color: var(--color-navy); }
+.font-heading { font-family: var(--font-heading); }
+
